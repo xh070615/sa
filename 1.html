@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				margin: 50px auto;
+				width: 1000px;
+				height: 521px;
+			}
+			.box ul{
+				width: 396px;
+				height: 46px;
+				border: 1px solid gray;
+				list-style: none;
+				border-bottom: 0;
+			}
+			.box ul li{
+				width: 99px;
+				height: 42px;
+				text-align: center;
+				line-height: 42px;
+				float: left;
+				border-top: 4px solid white;
+				cursor: pointer;
+				position: relative;
+			}
+			.box ul li.current{
+				border-color: red;
+			}
+			.box ul li span{
+				position: absolute;
+				right: 1px;
+				top: 0;
+			}
+			
+			.box .products{
+				width: 1000px;
+				height: 475px;
+				border: 1px solid gray;
+			}
+			.box .products .main{
+				display: none;
+			}
+			.box .products .active{
+				display: block;
+			}
+		</style>
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#box").children("ul").children("li").mouseover(function(){
+					$(this).addClass("current").siblings("li").removeClass("current");
+			    $("#box .products .main").eq($(this).index()).addClass("active").siblings().removeClass("active");
+					
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<ul>
+				<li class="current">国际大牌<span>|</span></li>
+				<li>国妆大牌<span>|</span></li>
+				<li>清洁用品<span>|</span></li>
+				<li>男士用品</li>
+			</ul>
+			<div class="products">
+				<div class="main active">
+					<a href="#"><img src="img/guojidapai.jpg"></a>
+				</div>
+				<div class="main">
+					<a href="#"><img src="img/guozhuangmingpin.jpg"></a>
+				</div>
+				<div class="main">
+					<a href="#"><img src="img/qingjieyongpin.jpg"></a>
+				</div>
+				<div class="main">
+					<a href="#"><img src="img/nanshijingpin.jpg"></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
